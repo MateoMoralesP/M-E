@@ -1,0 +1,307 @@
+/* Estilos generales */
+body {
+    scroll-behavior: smooth;
+    background-color: transparent; /* Cambiar el color de fondo a transparente */
+    color: #ffffff;
+    position: relative; /* Establecer posición relativa para permitir z-index */
+}
+
+/* Capa de semi transparencia */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semi transparente */
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+}
+
+/* Navbar */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2000; /* Asegurar que esté por encima de la capa de semi transparencia */
+    position: relative; /* Ajustar la posición para evitar que se superponga a la imagen de fondo */
+}
+
+.navbar-brand, .nav-link {
+    color: #d4af37 !important;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #d4af37 !important;
+}
+
+section{
+    background-color:#000000ad !important;
+}
+
+/* Jumbotron */
+.jumbotron {
+    color: #d4af37;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    opacity: 0.8;
+    animation: fadeInBackground 1.5s ease forwards;
+    /*Animacióndefondosemitransparente*/position: relative;
+    /*Establecerposiciónrelativaparapermitirz-index*/z-index: 1500;
+     /* Asegurar que esté por encima de la capa de semi transparencia */;
+    -webkit-animation: fadeInBackground 1.5s ease forwards;
+    background-color: #0000009e;
+}
+
+/* Estilos para la imagen de fondo */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/bob.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* Colocar detrás del contenido */
+    opacity: 0.8; /* Ajusta la opacidad según desees */
+}
+
+/* Encabezados */
+h2 {
+    font-family: 'Arial', sans-serif;
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #d4af37;
+    margin-bottom: 15px;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 300px; /* Espacio para que el contenido no se superponga con la imagen fija */
+}
+
+/* Detalle del evento */
+.event-detail {
+    margin-bottom: 30px;
+}
+
+/* Footer */
+footer {
+    background-color: #ffffff;
+    padding: 20px;
+    border-top: 1px solid #eaeaea;
+    animation: fadeInFooter 1s ease forwards; /* Animación de opacidad */
+    background-color:#000000d3 !important;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #d4af37;
+    font-size: 20px;
+}
+
+footer a:hover {
+    color: #b8993e;
+}
+
+/* Contenedor del mapa */
+.map-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporción 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Formulario RSVP */
+#rsvpForm .form-control {
+    border-radius: 30px;
+}
+
+#rsvpForm button {
+    background-color: #d4af37;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones para el botón */
+}
+
+#rsvpForm button:hover {
+    background-color: #b8993e;
+    transform: scale(1.05); /* Aumentar tamaño al hacer hover */
+}
+
+/* Detalle del evento - Iconos */
+.event-detail i.fa-church,
+.event-detail i.fa-door-open {
+    color: #cea932; /* Color dorado */
+}
+
+/* Animación para el desplazamiento del menú */
+.navbar-nav li {
+    animation: fadeInLeft 0.5s ease forwards;
+    opacity: 0;
+}
+
+.navbar-nav li:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.navbar-nav li:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.navbar-nav li:nth-child(3) {
+    animation-delay: 0.6s;
+}
+.navbar-nav li:nth-child(4) {
+    animation-delay: 0.8s;
+}
+.navbar-nav li:nth-child(5) {
+    animation-delay: 1s;
+}
+
+@keyframes fadeInLeft {
+    from {
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Efecto de hover para los íconos de redes sociales en el footer */
+.footer i {
+    transition: transform 0.3s ease, color 0.3s ease; /* Transición de color y transformación */
+}
+
+.footer i:hover {
+    transform: scale(1.2); /* Aumentar tamaño al hacer hover */
+    color: #b8993e; /* Cambiar color al hacer hover */
+}
+
+/* Animación de desplazamiento para las secciones */
+section {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de opacidad para el footer */
+@keyframes fadeInFooter {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animación para el fondo semitransparente */
+@keyframes fadeInBackground {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.8; /* Reducir opacidad */
+    }
+}
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .jumbotron {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+}
+
+/* Animación para el desvanecimiento de la página */
+.fadeIn {
+    animation: fadeInAnimation 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animación para la rotación del icono de Facebook */
+@keyframes rotateIcon {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.footer i.fa-facebook {
+    transition: transform 0.3s ease;
+}
+
+.footer i.fa-facebook:hover {
+    animation: rotateIcon 1s infinite linear;
+}
+
+.event-detail i.fa-door-open {
+    transition: transform 0.3s ease;
+}
+
+.event-detail i.fa-door-open:hover {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+.event-detail i.fa-church {
+    transition: transform 0.3s ease;
+}
+
+.event-detail i.fa-church:hover {
+    animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-5px); }
+    50% { transform: translateY(5px); }
+    75% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
