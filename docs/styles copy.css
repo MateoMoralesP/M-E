@@ -1,0 +1,109 @@
+body {
+    scroll-behavior: smooth;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand, .nav-link {
+    color: #333 !important;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #d4af37 !important;
+}
+
+.jumbotron {
+    background: url('images/wedding.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    opacity: 0.8;
+}
+
+h2 {
+    font-family: 'Arial', sans-serif;
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #d4af37;
+    margin-bottom: 15px;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.event-detail {
+    margin-bottom: 30px;
+}
+
+footer {
+    background-color: #ffffff;
+    padding: 20px;
+    border-top: 1px solid #eaeaea;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #d4af37;
+    font-size: 20px;
+}
+
+footer a:hover {
+    color: #b8993e;
+}
+
+.map-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#rsvpForm .form-control {
+    border-radius: 30px;
+}
+
+#rsvpForm button {
+    background-color: #d4af37;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#rsvpForm button:hover {
+    background-color: #b8993e;
+}
+
+.event-detail i.fa-church,
+.event-detail i.fa-door-open {
+    color: #cea932; /* Color dorado */
+}
