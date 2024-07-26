@@ -1,1 +1,0 @@
-es la prueba piloto de una invitacion
