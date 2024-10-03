@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
         document.querySelector(".preloader").classList.add("hidden");
-    }, 3000); // Ajusta el tiempo según sea necesario
+    }, 5000); // Ajusta el tiempo según sea necesario
 });
 
 
