@@ -1,7 +1,14 @@
+
 /* Animación de preloader */
-@keyframes preloaderAnimation {
-    0% { opacity: 0; transform: scale(0.8); }
-    100% { opacity: 1; transform: scale(1); }
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
 }
 
 .preloader {
@@ -10,21 +17,68 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    animation: preloaderAnimation 1s ease-out;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
 }
 
-/* Preloader oculto después de la animación */
 .preloader.hidden {
+    animation: fadeOut 0.5s ease-out; /* Animación de salida */
     opacity: 0;
     visibility: hidden;
+}
+
+.welcome-text {
+    text-align: center;
+    color: #d4af37;
+    max-width: 90%; /* Limitar el ancho máximo en pantallas grandes */
+    margin: 0 auto; /* Centrar el texto */
+    padding: 20px; /* Agregar un poco de espacio alrededor */
+}
+
+.welcome-text h1, .welcome-text p {
+    overflow: hidden; /* Para ocultar el texto que se "escribe" */
+    white-space:normal; /* No permitir saltos de línea */
+    width: 0; /* Comenzar con ancho 0 */
+    animation: typing 3s steps(30, end) forwards, blink-caret 0.75s step-end infinite; /* Animación de escritura */
+    font-size: 1.5rem; /* Ajusta el tamaño de la fuente según sea necesario */
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: aliceblue; } /* Cambia el color del cursor según tu preferencia */
+}
+
+.welcome-text p {
+    animation-delay: 3s; /* Retrasar el inicio del párrafo */
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .welcome-text h1 {
+        font-size: 1.2rem; /* Reducir tamaño de fuente en pantallas pequeñas */
+    }
+    .welcome-text p {
+        font-size: 1rem; /* Reducir tamaño de fuente en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-text h1 {
+        font-size: 1rem; /* Ajustar aún más en pantallas muy pequeñas */
+    }
+    .welcome-text p {
+        font-size: 0.9rem; /* Ajustar aún más en pantallas muy pequeñas */
+    }
 }
 
 
@@ -40,29 +94,20 @@
 }
 
 .logox {
-    width: 180px; /* Aumenta el tamaño del logo aquí */
-    height: 180px; /* Mantén las proporciones */
+    width: 50%; /* Aumenta el tamaño del logo aquí */
+    height: 50%; /* Mantén las proporciones */
     filter: drop-shadow(0 0 20px b38600);
     animation: glow 1.5s ease-in-out infinite;
     clip-path: circle(50% at 50% 50%);
 }
 
 .welcome-text h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     margin-bottom: 10px;
 }
 
 .welcome-text p {
     font-size: 1.5rem;
-}
-
-@media (min-width: 768px) {
-    .welcome-text h1 {
-        font-size: 4rem;
-    }
-    .welcome-text p {
-        font-size: 2rem;
-    }
 }
 /* Estilos generales */
 body {
