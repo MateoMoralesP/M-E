@@ -1,16 +1,14 @@
-document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(function() {
-        document.querySelector(".preloader").classList.add("hidden");
-    }, 5000); // Ajusta el tiempo según sea necesario
-});
+document.addEventListener('DOMContentLoaded', function () {
+    const preloader = document.querySelector('.preloader');
 
-
-// Mostrar y ocultar el formulario de RSVP
+    // Cerrar el preloader al hacer clic
+    preloader.addEventListener('click', function () {
+        preloader.classList.add('hidden');
+    });
+});// Mostrar y ocultar el formulario de RSVP
 $(document).ready(function () {
     initializeCountdown('2024-12-14');
-    $('#showRSVP').click(function () {
-        $('#rsvpForm').toggle();
-    });
+   
 
     $('nav a').on('click', function (event) {
         if (this.hash !== "") {
@@ -24,53 +22,8 @@ $(document).ready(function () {
         }
     });
 
-    $('#rsvpForm').on('submit', function (event) {
-        event.preventDefault();
-
-        var formData = {
-            name: $('#name').val(),
-            email: $('#email').val(),
-            guests: $('#guests').val()
-        };
-
-        $.ajax({
-            type: 'POST',
-            url: 'save_rsvp.php',
-            data: formData,
-            dataType: 'json',
-            encode: true
-        })
-        .done(function (data) {
-            console.log(data);
-            if (data.success) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'RSVP enviado',
-                    text: 'Tu RSVP se ha enviado correctamente.',
-                    confirmButtonText: 'Aceptar'
-                });
-
-                $('#rsvpForm')[0].reset(); // Resetear el formulario
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'Hubo un error al enviar tu RSVP. Por favor, inténtalo nuevamente.',
-                    confirmButtonText: 'Aceptar'
-                });
-            }
-        })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'No se pudo conectar con el servidor. Por favor, inténtalo más tarde.',
-                confirmButtonText: 'Aceptar'
-            });
-        });
-    });
+    
 });
-
 // Animación al hacer clic en el botón de navegación
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function() {
