@@ -1,3 +1,8 @@
+const formatoMex = new Intl.DateTimeFormat("es-MX", {
+  timeZone: "America/Mexico_City",
+  dateStyle: "full",
+  timeStyle: "medium"
+});
 document.addEventListener('DOMContentLoaded', function () {
     const preloader = document.querySelector('.preloader');
 
@@ -34,11 +39,17 @@ document.querySelectorAll('.nav-link').forEach(link => {
 });
 function initializeCountdown(date) {
     const countdownElement = document.getElementById('countdown-timer');
-    const targetDate = new Date(date).getTime();
+
+    // Convertir la fecha objetivo a la zona horaria de México
+    const targetDate = new Date(date).toLocaleString("en-US", { timeZone: "America/Mexico_City" });
+    const targetTime = new Date(targetDate).getTime();
 
     const updateCountdown = () => {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
+        // Obtener la hora actual en la zona horaria de México
+        const nowMexico = new Date().toLocaleString("en-US", { timeZone: "America/Mexico_City" });
+        const now = new Date(nowMexico).getTime();
+
+        const distance = targetTime - now;
 
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -53,6 +64,9 @@ function initializeCountdown(date) {
         }
     };
 
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+}
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
 }
