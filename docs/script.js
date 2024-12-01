@@ -1,8 +1,4 @@
-const formatoMex = new Intl.DateTimeFormat("es-MX", {
-  timeZone: "America/Mexico_City",
-  dateStyle: "full",
-  timeStyle: "medium"
-});
+
 document.addEventListener('DOMContentLoaded', function () {
     const preloader = document.querySelector('.preloader');
 
@@ -37,6 +33,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
         document.getElementById(targetSectionId).classList.add('fadeIn');
     });
 });
+
 function initializeCountdown(date) {
     const countdownElement = document.getElementById('countdown-timer');
 
