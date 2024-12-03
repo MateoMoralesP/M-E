@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Inicializar el contador regresivo
-    initializeCountdown('2024-12-14');
+    initializeCountdown('2024-12-14T14:00:00');
 });
 
 $(document).ready(function () {
@@ -32,6 +32,26 @@ $(document).ready(function () {
         $(`#${targetSectionId}`).addClass('fadeIn');
     });
 });
+
+const textElement = document.getElementById('text');
+const textToType = "¡Estás Invitado! \nAcompáñanos en la celebración de nuestra boda.\n(haz clic aquí!)";
+let index = 0;
+
+function typeWriter() {
+    if (index < textToType.length) {
+        const char = textToType.charAt(index);
+        // Reemplaza los saltos de línea con etiquetas <br> para HTML
+        if (char === '\n') {
+            textElement.innerHTML += '<br>';
+        } else {
+            textElement.innerHTML += char;
+        }
+        index++;
+        setTimeout(typeWriter, 90); // Ajusta el tiempo para cambiar la velocidad
+    }
+}
+
+typeWriter(); // Inicia la animación
 
 // Función para inicializar el contador regresivo
 function initializeCountdown(date) {
